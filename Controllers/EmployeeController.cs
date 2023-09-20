@@ -5,10 +5,10 @@ namespace C__employees_management.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class EmployeeController : ControllerBase
+public class Controller : ControllerBase
 {
 
-    [HttpPost(Name = "add-employee")]
+    [HttpPost("add-employee")]
     public async Task<ActionResult<List<Employee>>> AddEmployee(EmployeeDTO request)
     {
         using var _dbContext = new DataContext();
@@ -35,8 +35,8 @@ public class EmployeeController : ControllerBase
         return NotFound("Failed to add employee");
     }
 
-    [HttpGet(Name = "all-employee")]
-    public async Task<ActionResult<List<Employee>>> FetchAllEmployees()
+    [HttpGet("all-employee")]
+    public async Task<ActionResult<List<EmployeeDTO>>> FetchAllEmployees()
     {
         using var _dbContext = new DataContext();
         var employees = (from e in _dbContext.Employees
@@ -44,6 +44,7 @@ public class EmployeeController : ControllerBase
                          join r in _dbContext.Roles on e.RoleId equals r.RoleId
                          select new EmployeeDTO
                          {
+                             id = e.EmployeeId,
                              name = e.EmployeeName,
                              email = e.EmployeeEmail,
                              mobile = e.EmployeeMobile,
@@ -57,6 +58,30 @@ public class EmployeeController : ControllerBase
         else
         {
             return NotFound("Failed to fetch employees");
+        }
+
+    }
+
+    [HttpPost("employeeId")]
+    public async Task<ActionResult<EmployeeDTO>> UpdateOneEmployee(EmployeeDTO request)
+    {
+        using var _dbContext = new DataContext();
+        var department = _dbContext.Departments.FirstOrDefault(d => d.DepartmentName == request.department);
+        var role = _dbContext.Roles.FirstOrDefault(d => d.RoleName == request.role);
+        var currentEmployee = _dbContext.Employees.Where(employee => employee.EmployeeId == request.id).FirstOrDefault();
+        if (currentEmployee != null)
+        {
+            currentEmployee.EmployeeName = request.name;
+            currentEmployee.EmployeeEmail = request.email;
+            currentEmployee.EmployeeMobile = request.mobile;
+            currentEmployee.DepartmentId = department.DepartmentId;
+            currentEmployee.RoleId = role.RoleId;
+            _dbContext.SaveChanges();
+            return Ok(currentEmployee);
+        }
+        else
+        {
+            return NotFound("Employee not found");
         }
 
     }
