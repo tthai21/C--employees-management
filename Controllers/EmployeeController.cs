@@ -31,13 +31,13 @@ public class EmployeesController : ControllerBase
 
             _dbContext.Employees.Add(newEmployees);
             _dbContext.SaveChanges();
-            return Ok("Added");
+            return Ok($"Employee {newEmployees.EmployeeName} had been added to the database");
         }
 
         return NotFound("Failed to add employee");
     }
 
-    [HttpGet("all-employee")]
+    [HttpGet("all-employees")]
     public async Task<ActionResult<List<EmployeeDTO>>> AllEmployees()
     {
         using var _dbContext = new DataContext();

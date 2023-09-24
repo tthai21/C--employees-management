@@ -26,27 +26,45 @@ public class AuthController : ControllerBase
     public async Task<ActionResult<User>> Register(UserDTO request)
     {
         using var _dbContext = new DataContext();
-        // checked exited user
-        bool exited = await _dbContext.Users.AnyAsync(user => user.UserEmail == request.email);
-        if (exited == false)
+
+        bool userExists = await _dbContext.Users.AnyAsync(user => user.UserEmail == request.email);
+        if (userExists)
         {
-            var department = await _dbContext.Departments.FirstOrDefaultAsync(d => d.DepartmentName == request.department);
-            var role = await _dbContext.Roles.FirstOrDefaultAsync(r => r.RoleName == request.role);
-            CreatePasswordHash(request.password, out byte[] passwordHash, out byte[] passwordSalt);
-            user.UserName = request.name;
-            user.UserEmail = request.email;
-            user.UserMobile = request.mobile;
-            user.DepartmentId = department.DepartmentId;
-            user.RoleId = role.RoleId;
-            user.PasswordHash = passwordHash;
-            user.PasswordSalt = passwordSalt;
-            await _dbContext.AddAsync(user);
-            await _dbContext.SaveChangesAsync();
-            return Ok(user);
+            var errorResponse = new { ErrorMessage = "Email already exists" };
+            return Conflict(errorResponse);
         }
-        var errorResponse = new { ErrorMessage = "Email already exists" };
-        return NotFound(errorResponse);
+
+
+        var department = await _dbContext.Departments.FirstOrDefaultAsync(d => d.DepartmentName == request.department);
+        var role = await _dbContext.Roles.FirstOrDefaultAsync(r => r.RoleName == request.role);
+
+        if (department == null || role == null)
+        {
+            var errorResponse = new { ErrorMessage = "Department or role not found" };
+            return NotFound(errorResponse);
+        }
+
+
+        CreatePasswordHash(request.password, out byte[] passwordHash, out byte[] passwordSalt);
+
+
+        var newUser = new User
+        {
+            UserName = request.name,
+            UserEmail = request.email,
+            UserMobile = request.mobile,
+            DepartmentId = department.DepartmentId,
+            RoleId = role.RoleId,
+            PasswordHash = passwordHash,
+            PasswordSalt = passwordSalt
+        };
+
+        _dbContext.Users.Add(newUser);
+        await _dbContext.SaveChangesAsync();
+
+        return Ok(newUser);
     }
+
 
     [HttpPost("login")]
     public async Task<ActionResult<User>> Login(UserDTO request)
@@ -74,12 +92,14 @@ public class AuthController : ControllerBase
 
 
 
+
+
     private void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
     {
         using (var hmac = new HMACSHA512())
         {
             passwordSalt = hmac.Key;
-            passwordHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
+            passwordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password));
         }
     }
 
