@@ -82,3 +82,4 @@ C:\Users\user\Desktop\C--employees-management\obj\Debug\net7.0\refint\C--employe
 C:\Users\user\Desktop\C--employees-management\obj\Debug\net7.0\C--employees-management.pdb
 C:\Users\user\Desktop\C--employees-management\obj\Debug\net7.0\C--employees-management.genruntimeconfig.cache
 C:\Users\user\Desktop\C--employees-management\obj\Debug\net7.0\ref\C--employees-management.dll
+C:\Users\user\Desktop\C--employees-management\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

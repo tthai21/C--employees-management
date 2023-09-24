@@ -12,10 +12,10 @@ namespace Employee_api
         public string UserMobile { get; set; }
 
         [ForeignKey("DepartmentId")]
-        public Department Department { get; set; }
+        public int DepartmentId { get; set; }
 
         [ForeignKey("RoleId")]
-        public Role Role { get; set; }
+        public int RoleId { get; set; }
 
         public byte[] PasswordHash { get; set; }
         public byte[] PasswordSalt { get; set; }

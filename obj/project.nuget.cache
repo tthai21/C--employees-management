@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "VAA3GZcpTobSosZg0cdZ+8eBFx1iW/zBQCxqSdPkAWcR0hzBu4Pvq7+3R+HLf/U2X0ChuiRAAHRoTlEtK5RcMg==",
+  "dgSpecHash": "1pbhBiXlE+h+wozxv66XRZn46mSfVUZgDauPRWfkKz1bQWr+Oa78dO35M0OUGCR3lcFUP8R31AkVWp+KaSPbjg==",
   "success": true,
   "projectFilePath": "C:\\Users\\user\\Desktop\\C--employees-management\\C--employees-management.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\user\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\7.0.11\\microsoft.aspnetcore.authentication.jwtbearer.7.0.11.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.10\\microsoft.aspnetcore.openapi.7.0.10.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
