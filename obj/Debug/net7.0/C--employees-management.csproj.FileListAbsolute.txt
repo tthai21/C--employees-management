@@ -1,3 +1,4 @@
+C:\Users\user\Desktop\C--employees-management\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\user\Desktop\C--employees-management\bin\Debug\net7.0\appsettings.Development.json
 C:\Users\user\Desktop\C--employees-management\bin\Debug\net7.0\appsettings.json
 C:\Users\user\Desktop\C--employees-management\bin\Debug\net7.0\C--employees-management.exe
@@ -7,7 +8,9 @@ C:\Users\user\Desktop\C--employees-management\bin\Debug\net7.0\C--employees-mana
 C:\Users\user\Desktop\C--employees-management\bin\Debug\net7.0\C--employees-management.pdb
 C:\Users\user\Desktop\C--employees-management\bin\Debug\net7.0\Azure.Core.dll
 C:\Users\user\Desktop\C--employees-management\bin\Debug\net7.0\Azure.Identity.dll
+C:\Users\user\Desktop\C--employees-management\bin\Debug\net7.0\DotNetEnv.dll
 C:\Users\user\Desktop\C--employees-management\bin\Debug\net7.0\Humanizer.dll
+C:\Users\user\Desktop\C--employees-management\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\user\Desktop\C--employees-management\bin\Debug\net7.0\Microsoft.AspNetCore.OpenApi.dll
 C:\Users\user\Desktop\C--employees-management\bin\Debug\net7.0\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\user\Desktop\C--employees-management\bin\Debug\net7.0\Microsoft.Data.SqlClient.dll
@@ -31,9 +34,9 @@ C:\Users\user\Desktop\C--employees-management\bin\Debug\net7.0\Microsoft.SqlServ
 C:\Users\user\Desktop\C--employees-management\bin\Debug\net7.0\Microsoft.Win32.SystemEvents.dll
 C:\Users\user\Desktop\C--employees-management\bin\Debug\net7.0\Mono.TextTemplating.dll
 C:\Users\user\Desktop\C--employees-management\bin\Debug\net7.0\Newtonsoft.Json.dll
+C:\Users\user\Desktop\C--employees-management\bin\Debug\net7.0\Sprache.dll
 C:\Users\user\Desktop\C--employees-management\bin\Debug\net7.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\user\Desktop\C--employees-management\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerGen.dll
-C:\Users\user\Desktop\C--employees-management\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\user\Desktop\C--employees-management\bin\Debug\net7.0\System.CodeDom.dll
 C:\Users\user\Desktop\C--employees-management\bin\Debug\net7.0\System.Configuration.ConfigurationManager.dll
 C:\Users\user\Desktop\C--employees-management\bin\Debug\net7.0\System.Data.SqlClient.dll
@@ -82,6 +85,3 @@ C:\Users\user\Desktop\C--employees-management\obj\Debug\net7.0\refint\C--employe
 C:\Users\user\Desktop\C--employees-management\obj\Debug\net7.0\C--employees-management.pdb
 C:\Users\user\Desktop\C--employees-management\obj\Debug\net7.0\C--employees-management.genruntimeconfig.cache
 C:\Users\user\Desktop\C--employees-management\obj\Debug\net7.0\ref\C--employees-management.dll
-C:\Users\user\Desktop\C--employees-management\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
-C:\Users\user\Desktop\C--employees-management\bin\Debug\net7.0\DotNetEnv.dll
-C:\Users\user\Desktop\C--employees-management\bin\Debug\net7.0\Sprache.dll

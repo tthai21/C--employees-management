@@ -1,3 +1,6 @@
 {
-  "cSpell.words": ["hmac", "HMACSHA", "moviesttd"]
+  "cSpell.words": ["hmac", "HMACSHA", "moviesttd"],
+  "appService.preDeployTask": "publish-release",
+  "appService.deploySubpath": "bin\\Release\\net7.0\\publish",
+  "appService.defaultWebAppToDeploy": "/subscriptions/4e4c3dc7-bca7-4d9c-8b35-e1e917db6515/resourceGroups/EmployeesManagement/providers/Microsoft.Web/sites/employees-management-tdt"
 }
