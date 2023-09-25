@@ -1,6 +1,7 @@
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using Employee_api;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +17,7 @@ builder.Services.AddCors(options =>
                           .AllowAnyHeader();
                       });
 });
+
 
 // Add services to the container.
 
@@ -61,3 +63,4 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
