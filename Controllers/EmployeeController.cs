@@ -101,12 +101,12 @@ public class EmployeesController : ControllerBase
     }
 
 
-    [HttpPost("employeeId")]
-    public async Task<ActionResult<EmployeeDTO>> UpdateEmployee(EmployeeDTO request)
+    [HttpPost("edit/employeeId")]
+    public async Task<ActionResult<EmployeeDTO>> EditEmployee(EmployeeDTO request)
     {
         using var _dbContext = new DataContext();
         var department = await _dbContext.Departments.FirstOrDefaultAsync(d => d.DepartmentName == request.department);
-        var role = _dbContext.Roles.FirstOrDefault(d => d.RoleName == request.role);
+        var role = await _dbContext.Roles.FirstOrDefaultAsync(d => d.RoleName == request.role);
         var currentEmployee = _dbContext.Employees.Where(employee => employee.EmployeeId == request.id).FirstOrDefault();
         if (currentEmployee != null)
         {
@@ -116,11 +116,31 @@ public class EmployeesController : ControllerBase
             currentEmployee.DepartmentId = department.DepartmentId;
             currentEmployee.RoleId = role.RoleId;
             _dbContext.SaveChanges();
-            return Ok(currentEmployee);
+            return Ok($"Employee's information has been update successfully to.");
         }
         else
         {
             return NotFound("Employee not found");
         }
     }
+
+    [HttpPost("remove/employeeId")]
+    public async Task<ActionResult> RemoveEmployee([FromQuery] int id)
+    {
+        using var _dbContext = new DataContext();
+
+
+        var currentEmployee = await _dbContext.Employees.FindAsync(id);
+        if (currentEmployee != null)
+        {
+            _dbContext.Employees.Remove(currentEmployee);
+            await _dbContext.SaveChangesAsync();
+            return Ok($"Employee with ID {id} has been successfully removed.");
+        }
+        else
+        {
+            return NotFound("Employee not found");
+        }
+    }
+
 }
