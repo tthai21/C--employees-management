@@ -92,7 +92,7 @@ public class AuthController : ControllerBase
 
 
     [HttpGet("all")]
-    public async Task<ActionResult<User>> All()
+    public ActionResult<User> All()
     {
         using var _dbContext = new DataContext();
         var allUser = (from u in _dbContext.Users

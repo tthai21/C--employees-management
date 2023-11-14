@@ -64,7 +64,7 @@ public class EmployeesController : ControllerBase
     }
 
     [HttpGet("sort-employees")]
-    public async Task<ActionResult<EmployeeDTO>> SortEmployees(string department = null, string role = null)
+    public ActionResult<EmployeeDTO> SortEmployees(string department = null, string role = null)
     {
         using var db_Context = new DataContext();
         var employees = from e in db_Context.Employees
