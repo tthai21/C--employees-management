@@ -42,35 +42,7 @@ namespace Employee_api
 
         }
 
-        public static void InsertData()
-        {
-            using var dbContext = new DataContext();
-            var departments = new[]
-        {
-            "Development",
-            "Quality Assurance",
-            "Infrastructure",
-            "Technical Support",
-            "Security",
-            "Project Management",
-            "Sales and Marketing"
-        };
-            foreach (var departmentName in departments)
-            {
-                if (!dbContext.Departments.Any(d => d.DepartmentName == departmentName))
-                {
-                    var department = new Department
-                    {
-                        DepartmentName = departmentName
-                    };
-
-                    dbContext.Departments.Add(department);
-                }
-            }
-
-            dbContext.SaveChanges();
-
-        }
+      
     }
 
 }

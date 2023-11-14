@@ -10,7 +10,7 @@ using System.Text;
 namespace C__employees_management.Controllers;
 
 [ApiController]
-[Route("api/[controller]")]
+[Route("[controller]")]
 public class AuthController : ControllerBase
 {
     public static User user = new User();
